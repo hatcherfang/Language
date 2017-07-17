@@ -12,3 +12,5 @@
 ```
 - awk: delete all the python process
 >> `ps -ef | grep python | awk '{print $2}' | xargs kill -9` 
+- unzip: unzip zip file and override exists files
+>> `unzip -o filename.zip` 
