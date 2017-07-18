@@ -1,3 +1,2 @@
 # python
-python sample  
-Just for python test  
+python study 
