@@ -14,3 +14,12 @@
 >> `ps -ef | grep python | awk '{print $2}' | xargs kill -9` 
 - unzip: unzip zip file and override exists files
 >> `unzip -o filename.zip` 
+- screen management tool: tmux
+>> yum install tmux  
+>> Common command:  
+>>1. create session: `tmux new -s s1 -n w1`  
+>>2. create new session: `ctrl + b + c`  
+>>3. show session list(must be in session): `tmux ls`  
+>>4. split window: `ctrl + b + %`, `ctrl + b + \"`  
+>>5. minimum/maximum window: `ctrl + b + z`  
+>>6. switch window: `ctrl + b + o`, `ctrl + b + q` + panel number
