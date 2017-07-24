@@ -1,16 +1,16 @@
-# reference `https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000`
+"reference `https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000`"  
 - js match upperlower case
 - 由于JavaScript这个设计缺陷，不要使用==比较，始终坚持使用===比较
 - 字符串是以单引号\'或双引号\"括起来的任意文本\"\'
 - 数组是一组按顺序排列的集合，集合的每个值称为元素。JavaScript的数组可以包括任意数据类型
-- JavaScript对象的键都是字符串类型，值可以是任意数据类型。
-`var person = {
-    name: 'Bob',
-    age: 20,
-    tags: ['js', 'web', 'mobile'],
-    city: 'Beijing',
-    hasCar: true,
-    zipcode: null
+- JavaScript对象的键都是字符串类型，值可以是任意数据类型。  
+`var person = {  
+    name: 'Bob',  
+    age: 20,  
+    tags: ['js', 'web', 'mobile'],  
+    city: 'Beijing',  
+    hasCar: true,  
+    zipcode: null  
 
 };`  
 要获取一个对象的属性，我们用对象变量.属性名的方式  
@@ -92,3 +92,36 @@ x => { foo: x  }`
 - 因为和函数体的{ ...  }有语法冲突，所以要改为：
 `// ok:
 x => ({ foo: x  })`
+- typeof操作符获取对象的类型
+`typeof 123; // 'number'
+typeof NaN; // 'number'
+typeof 'str'; // 'string'
+typeof true; // 'boolean'
+typeof undefined; // 'undefined'
+typeof Math.abs; // 'function'
+typeof null; // 'object'
+typeof []; // 'object'
+typeof {}; // 'object'`
+- 包装对象
+总结一下，有这么几条规则需要遵守：  
+
+不要使用new Number()、new Boolean()、new String()创建包装对象；  
+
+用parseInt()或parseFloat()来转换任意类型到number；  
+
+用String()来转换任意类型到string，或者直接调用某个对象的toString()方法；  
+
+通常不必把任意类型转换为boolean再判断，因为可以直接写if (myVar) {...}；  
+
+typeof操作符可以判断出number、boolean、string、function和undefined；  
+
+判断Array要使用Array.isArray(arr)；  
+
+判断null请使用myVar === null；  
+
+判断某个全局变量是否存在用typeof window.myVar === 'undefined'；  
+
+函数内部判断某个变量是否存在用typeof myVar === 'undefined'。  
+
+最后有细心的同学指出，任何对象都有toString()方法吗？null和undefined就没有！确实如此，这两个特殊值要除外，虽然null还伪装成了object类型。  
+- Date: 你可能观察到了一个非常非常坑爹的地方，就是JavaScript的月份范围用整数表示是0~11，0表示一月，1表示二月……，所以要表示6月，我们传入的是5！这绝对是JavaScript的设计者当时脑抽了一下，但是现在要修复已经不可能了。
