@@ -22,18 +22,18 @@
 如果一个变量在函数体内部申明，则该变量的作用域为整个函数体，在函数体外不可引用该变量：
 - 为了解决块级作用域，ES6引入了新的关键字let，用let替代var可以申明一个块级作用域的变量：
 `
-'use strict';
+'use strict';  
 
-function foo() {
-    var sum = 0;
-    for (let i=0; i<100; i++) {
-        sum += i;
+function foo() {  
+    var sum = 0;  
+    for (let i=0; i<100; i++) {  
+        sum += i;  
     
-    }
-    i += 1; // SyntaxError
+    }  
+    i += 1; // SyntaxError  
 
-}
-`
+}  
+`  
 - 常量：ES6标准引入了新的关键字const来定义常量，const与let都具有块级作用域：
 `
 'use strict';
