@@ -116,6 +116,7 @@ typeof {}; // 'object'
 - 包装对象
 总结一下，有这么几条规则需要遵守：  
 
+```
 不要使用new Number()、new Boolean()、new String()创建包装对象；  
 
 用parseInt()或parseFloat()来转换任意类型到number；  
@@ -135,6 +136,7 @@ typeof操作符可以判断出number、boolean、string、function和undefined�
 函数内部判断某个变量是否存在用`typeof myVar === 'undefined'。`  
 
 最后有细心的同学指出，任何对象都有toString()方法吗？null和undefined就没有！确实如此，这两个特殊值要除外，虽然null还伪装成了object类型。  
+```
 - Date: 你可能观察到了一个非常非常坑爹的地方，就是JavaScript的月份范围用整数表示是0~11，0表示一月，1表示二月……，所以要表示6月，我们传入的是5！这绝对是JavaScript的设计者当时脑抽了一下，但是现在要修复已经不可能了。
 - RegExp
 1. 用\d可以匹配一个数字;\w可以匹配一个字母或数字; .可以匹配任意字符; 要匹配变长的字符，在正则表达式中，用*表示任意个字符（包括0个）;用+表示至少一个字符;用?表示0个或1个字符; 用{n}表示n个字符，用{n,m}表示n-m个字符;
