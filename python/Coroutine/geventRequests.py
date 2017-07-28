@@ -1,5 +1,4 @@
 import requests
-import json
 import gevent
 # add monkey patch to improve cocurrency
 from gevent import monkey
@@ -46,6 +45,7 @@ def sendGet():
 
 
 def sendPost():
+    # there should have only one job or there will have too many open file error
     jobs = []
     body = {'key1': 'value1', 'key2': 'value2'}
     jobs.append(gevent.spawn(requestsPost, 'http://httpbin.org/post', body))
