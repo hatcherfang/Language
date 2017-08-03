@@ -470,4 +470,4 @@ refer:`http://ulricqin.com/post/httponly-cookie/`
 history对象保存了浏览器的历史记录，JavaScript可以调用history对象的back()或forward ()，相当于用户点击了浏览器的“后退”或“前进”按钮。  
 这个对象属于历史遗留对象，对于现代Web页面来说，由于大量使用AJAX和页面交互，简单粗暴地调用history.back()可能会让用户感到非常愤怒。  
 新手开始设计Web页面时喜欢在登录页登录成功时调用history.back()，试图回到登录前的页面。这是一种错误的方法。  
-** 任何情况，你都不应该使用history这个对象了。**  
+**任何情况，你都不应该使用history这个对象了。**  
