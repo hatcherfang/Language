@@ -241,3 +241,150 @@ re.exec(s); // null，直到结束仍没有匹配到
 
 正则表达式还可以指定i标志，表示忽略大小写，m标志，表示执行多行匹配。
 ```
+## JSON
+- 在JSON中，一共就这么几种数据类型：
+```
+number：和JavaScript的number完全一致；
+boolean：就是JavaScript的true或false；
+string：就是JavaScript的string；
+null：就是JavaScript的null；
+array：就是JavaScript的Array表示方式——[]；
+object：就是JavaScript的{ ...  }表示方式。
+以及上面的任意组合。
+
+并且，JSON还定死了字符集必须是UTF-8，表示多语言就没有问题了。为了统一解析，JSON的字符串规定必须用双引号""，Object的键也必须用双引号""。
+```
+- 序列化
+让我们先把小明这个对象序列化成JSON格式的字符串：  
+```
+var xiaoming = {
+    name: '小明',
+    age: 14,
+    gender: true,
+    height: 1.65,
+    grade: null,
+    'middle-school': '\"W3C\" Middle School',
+    skills: ['JavaScript', 'Java', 'Python', 'Lisp']
+
+};
+
+JSON.stringify(xiaoming); // '{"name":"小明","age":14,"gender":true,"height":1.65,"grade":null,"middle-school":"\"W3C\" Middle School","skills":["JavaScript","Java","Python","Lisp"]}'
+```
+- 反序列化  
+拿到一个JSON格式的字符串，我们直接用JSON.parse()把它变成一个JavaScript对象：  
+```
+JSON.parse('[1,2,3,true]'); // [1, 2, 3, true]
+JSON.parse('{"name":"小明","age":14}'); // Object {name: '小明', age: 14}
+JSON.parse('true'); // true
+JSON.parse('123.45'); // 123.45
+```
+## 面向对象编程
+- 构造函数  
+在JavaScript中，可以用关键字new来调用这个函数，并返回一个对象,如果不写new，这就是一个普通函数，它返回undefined。但是，如果写了new，它就变成了一个构造函数，它绑定的this指向新创建的对象，并默认返回this，也就是说，不需要在最后写return this;。
+```
+function Student(name) {
+    this.name = name;
+    this.hello = function () {
+        alert('Hello, ' + this.name + '!');
+    
+    }
+
+}
+var xiaoming = new Student('小明');
+xiaoming.name; // '小明'
+xiaoming.hello(); // Hello, 小明!
+var xiaohong = new Student('小红');
+```
+xiaoming和xiaohong各自的hello是一个函数，但它们是两个不同的函数，虽然函数名称和代码都是相同的！  
+如果我们通过new Student()创建了很多对象，这些对象的hello函数实际上只需要共享同一个函数就可以了，这样可以节省很多内存。  
+要让创建的对象共享一个hello函数，根据对象的属性查找原则，我们只要把hello函数移动到xiaoming、xiaohong这些对象共同的原型上就可以了，也就是Student.prototype：  
+修改代码如下:  
+```
+function Student(name) {
+    this.name = name;
+
+}
+
+Student.prototype.hello = function () {
+    alert('Hello, ' + this.name + '!');
+
+};
+```
+- 忘记写new怎么办  
+如果一个函数被定义为用于创建对象的构造函数，但是调用时忘记了写new怎么办？
+在strict模式下，this.name = name将报错，因为this绑定为undefined，在非strict模式下，this.name = name不报错，因为this绑定为window，于是无意间创建了全局变量name，并且返回undefined，这个结果更糟糕。
+所以，调用构造函数千万不要忘记写new。为了区分普通函数和构造函数，按照约定，构造函数首字母应当大写，而普通函数首字母应当小写，这样，一些语法检查工具如jslint将可以帮你检测到漏写的new.
+最后，我们还可以编写一个createStudent()函数，在内部封装所有的new操作。一个常用的编程模式像这样：  
+```
+function Student(props) {
+    this.name = props.name || '匿名'; // 默认值为'匿名'
+    this.grade = props.grade || 1; // 默认值为1
+
+}
+
+Student.prototype.hello = function () {
+    alert('Hello, ' + this.name + '!');
+
+};
+
+function createStudent(props) {
+    return new Student(props || {})
+
+}
+```
+这个createStudent()函数有几个巨大的优点：一是不需要new来调用，二是参数非常灵活，可以不传，也可以这么传：  
+```
+var xiaoming = createStudent({
+    name: '小明'
+});
+
+xiaoming.grade; // 1
+```
+- class继承
+如果用新的class关键字来编写Student，可以这样写：  
+```
+class Student {
+	constructor(name) {
+        this.name = name;
+    
+	}
+
+	hello() {
+        alert('Hello, ' + this.name + '!');
+    
+	}
+}
+```
+比较一下就可以发现，class的定义包含了构造函数constructor和定义在原型对象上的函数hello()（注意没有function关键字），这样就避免了Student.prototype.hello = function () {...}这样分散的代码。  
+最后，创建一个Student对象代码和前面章节完全一样：  
+```
+var xiaoming = new Student('小明');
+xiaoming.hello();
+```
+- class继承
+用class定义对象的另一个巨大的好处是继承更方便了。想一想我们从Student派生一个PrimaryStudent需要编写的代码量。现在，原型继承的中间对象，原型对象的构造函数等等都不需要考虑了，直接通过extends来实现：  
+```
+class PrimaryStudent extends Student {
+	constructor(name, grade) {
+        super(name); // 记得用super调用父类的构造方法!
+        this.grade = grade;
+    
+	}
+
+	myGrade() {
+        alert('I am at grade ' + this.grade);
+    
+	}
+}
+```
+注意PrimaryStudent的定义也是class关键字实现的，而extends则表示原型链对象来自Student。子类的构造函数可能会与父类不太相同，例如，PrimaryStudent需要name和grade两个参数，并且需要通过super(name)来调用父类的构造函数，否则父类的name属性无法正常初始化。  
+
+PrimaryStudent已经自动获得了父类Student的hello方法，我们又在子类中定义了新的myGrade方法。  
+
+ES6引入的class和原有的JavaScript原型继承有什么区别呢？实际上它们没有任何区别，class的作用就是让JavaScript引擎去实现原来需要我们自己编写的原型链代码。简而言之，用class的好处就是极大地简化了原型链代码。  
+
+你一定会问，class这么好用，能不能现在就用上？  
+
+现在用还早了点，因为不是所有的主流浏览器都支持ES6的class。如果一定要现在就用上，就需要一个工具把class代码转换为传统的prototype代码，可以试试Babel这个工具。  
+- 浏览器  
+在编写JavaScript的时候，就要充分考虑到浏览器的差异，尽量让同一份JavaScript代码能运行在不同的浏览器中。
