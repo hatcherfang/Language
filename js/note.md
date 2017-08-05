@@ -1,4 +1,6 @@
-"reference `https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000`"  
+## Related Tutorials
+[www.liaoxuefeng.com](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000)  
+
 - js match upperlower case
 - 由于JavaScript这个设计缺陷，不要使用==比较，始终坚持使用===比较
 - 字符串是以单引号\'或双引号\"括起来的任意文本\"\'
