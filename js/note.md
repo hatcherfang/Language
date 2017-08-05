@@ -561,7 +561,7 @@ test.innerText:
 　　从起始位置到终止位置的内容, 但它去除Html标签 
 　　上例中的test.innerText的值也就是“test1 test2”, 其中span标签去除了。
 ```
-####更新DOM 
+#### 更新DOM 
 - 一种是修改innerHTML属性  
 这个方式非常强大，不但可以修改一个DOM节点的文本内容，还可以直接通过HTML片段修改DOM节点内部的子树：
 ```
@@ -593,7 +593,7 @@ p.style.color = '#ff0000';
 p.style.fontSize = '20px';
 p.style.paddingTop = '2em';
 ```
-####插入DOM 
+#### 插入DOM 
 - 一个是使用appendChild  
 把一个子节点添加到父节点的最后一个子节点。例如：  
 ```
@@ -683,7 +683,7 @@ for (i = 0; i < list.children.length; i++) {
 
 }
 ```
-####删除DOM
+#### 删除DOM
 删除一个DOM节点就比插入要容易得多。  
 
 要删除一个节点，首先要获得该节点本身以及它的父节点，然后，调用父节点的removeChild把自己删掉：  
