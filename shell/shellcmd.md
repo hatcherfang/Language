@@ -36,5 +36,17 @@ Common command:
 - check file/directory disk size  
 ```
 du -ah file/directory  
+
+run command `man du` to show parameters as below:
+
+...
+-a, --all
+       write counts for all files, not just directories
+
+-h, --human-readable
+       print sizes in human readable format (e.g., 1K 234M 2G)
+
+-s, --summarize
+       display only a total for each argument
+...
 ```
-Note: man du to check `-h` usage  
