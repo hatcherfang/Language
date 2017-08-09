@@ -1,4 +1,4 @@
-# Linux system command
+# Linux System Command
 - check centos version
 ```
 cat /etc/redhat-release
