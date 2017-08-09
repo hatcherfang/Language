@@ -30,7 +30,7 @@ Common command:
 1. create session: `tmux new -s s1 -n w1`  
 2. create new session: `ctrl + b + c`  
 3. show session list(must be in session): `tmux ls`  
-4. split window: `ctrl + b + %`, `ctrl + b + \"`  
+4. split window: `ctrl + b + %`, `ctrl + b + "`  
 5. minimum/maximum window: `ctrl + b + z`  
 6. switch window: `ctrl + b + o`, `ctrl + b + q` + panel number  
 - check file/directory disk size  
