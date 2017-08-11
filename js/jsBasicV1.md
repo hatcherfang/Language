@@ -1,4 +1,4 @@
-## js basic knowledge
+## js Basic Knowledge
 - js match upperlower case
 - 由于JavaScript这个设计缺陷，不要使用==比较，始终坚持使用===比较
 - 字符串是以单引号\'或双引号\"括起来的任意文本\"\'
