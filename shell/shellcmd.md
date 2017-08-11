@@ -33,6 +33,9 @@ Common command:
 4. split window: `ctrl + b + %`, `ctrl + b + "`  
 5. minimum/maximum window: `ctrl + b + z`  
 6. switch window: `ctrl + b + o`, `ctrl + b + q` + panel number  
+7. close panel: `ctrl + b + x`
+8. move the current pane left `ctrl + b + {`
+9. move the current pane right `ctrl + b + }`
 - check file/directory disk size  
 ```
 du -ah file/directory  
@@ -50,3 +53,5 @@ run command `man du` to show parameters as below:
        display only a total for each argument
 ...
 ```
+**Related Tutorials**:  
+[tmux](http://harttle.com/2015/11/06/tmux-startup.html)
