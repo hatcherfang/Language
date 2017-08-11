@@ -55,5 +55,5 @@ run command `man du` to show parameters as below:
 ```
 **Related Tutorials**:   
 1.tmux:  
-[harttle.com](http://harttle.com/2015/11/06/tmux-startup.html)  
-[kumu-linux.github](http://kumu-linux.github.io/blog/2013/08/06/tmux/)  
+- [harttle.com](http://harttle.com/2015/11/06/tmux-startup.html)  
+- [kumu-linux.github](http://kumu-linux.github.io/blog/2013/08/06/tmux/)  
