@@ -53,7 +53,14 @@ run command `man du` to show parameters as below:
        display only a total for each argument
 ...
 ```
+- upload/download files sz/rz command  
+1. yum install lrzsz  
+2. sz means send files to client and rz means receive files from client and these operation happen at server that you install the package 
+3. usage:  
+`sz filename1 filename2` to send server files to client  
+`rz` to receive client files, that means upload client files to server  
+
 **Related Tutorials**:   
-1.tmux:  
-- [harttle.com](http://harttle.com/2015/11/06/tmux-startup.html)  
-- [kumu-linux.github](http://kumu-linux.github.io/blog/2013/08/06/tmux/)  
+- [优雅地使用命令行：Tmux 终端复用](http://harttle.com/2015/11/06/tmux-startup.html)  
+- [Linux下终端利器tmux](http://kumu-linux.github.io/blog/2013/08/06/tmux/)  
+- [Linux基础：利用SSH上传、下载（使用sz与rz命令）](http://skypegnu1.blog.51cto.com/8991766/1538371)  
