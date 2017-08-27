@@ -56,7 +56,8 @@ run command `man du` to show parameters as below:
 - upload/download files sz/rz command  
 1. yum install lrzsz  
 2. sz means send files to client and rz means receive files from client and these operation happen at server that you install the package 
-3. usage:  
+3. z may be means zmodem a file transfer protocal  
+4. usage:  
 `sz filename1 filename2` to send server files to client  
 `rz` to receive client files, that means upload client files to server  
 
