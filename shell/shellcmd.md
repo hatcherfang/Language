@@ -62,10 +62,10 @@ run command `man du` to show parameters as below:
 `rz` to receive client files, that means upload client files to server  
 
 - cassandra command in linux environment  
-1. cqlsh;  # to get into cassandra  
-2. describe keyspaces;  # to show tables space  
-3. describe tables; # to show tables's name  
-4. describe table table_name; # to show table structure  
+1. `cqlsh;`  to get into cassandra  
+2. `describe keyspaces;`  to show tables space  
+3. `describe tables;`  to show tables's name  
+4. `describe table table_name;`  to show table structure  
 
 
 **Related Tutorials**:   
