@@ -61,6 +61,13 @@ run command `man du` to show parameters as below:
 `sz filename1 filename2` to send server files to client  
 `rz` to receive client files, that means upload client files to server  
 
+- cassandra command in linux environment  
+1. cqlsh;  # to get into cassandra  
+2. describe keyspaces;  # to show tables space  
+3. describe tables; # to show tables's name  
+4. describe table table_name; # to show table structure  
+
+
 **Related Tutorials**:   
 - [优雅地使用命令行：Tmux 终端复用](http://harttle.com/2015/11/06/tmux-startup.html)  
 - [Linux下终端利器tmux](http://kumu-linux.github.io/blog/2013/08/06/tmux/)  
