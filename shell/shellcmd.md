@@ -68,8 +68,28 @@ run command `man du` to show parameters as below:
 4. `describe tables`  to show tables's name  
 5. `describe table table_name`  to show table structure  
 
+- check certificate info  
+```
+# 查看KEY信息
+> openssl rsa -noout -text -in myserver.key
+
+# 查看CSR信息
+> openssl req -noout -text -in myserver.csr
+
+# 查看证书信息
+> openssl x509 -noout -text -in ca.crt
+
+# 验证证书
+# 会提示self signed
+> openssl verify selfsign.crt
+
+# 因为myserver.crt 是幅ca.crt发布的，所以会验证成功
+> openssl verify -CAfile ca.crt myserver.crt
+```
+
 
 **Related Tutorials**:   
 - [优雅地使用命令行：Tmux 终端复用](http://harttle.com/2015/11/06/tmux-startup.html)  
 - [Linux下终端利器tmux](http://kumu-linux.github.io/blog/2013/08/06/tmux/)  
 - [Linux基础：利用SSH上传、下载（使用sz与rz命令）](http://skypegnu1.blog.51cto.com/8991766/1538371)  
+- [常用Openssl命令](http://www.cnblogs.com/E7868A/archive/2012/11/16/2772240.html)  
