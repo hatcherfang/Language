@@ -36,6 +36,10 @@ Common command:
 7. close panel: `ctrl + b + x`
 8. move the current pane left `ctrl + b + {`
 9. move the current pane right `ctrl + b + }`
+10. [root@sm ~]# tmux kill-session -t 0  
+usage: kill-session [-a] [-t target-session]  
+11. tmux at -t session  
+
 - check file/directory disk size  
 ```
 du -ah file/directory  
@@ -86,6 +90,8 @@ run command `man du` to show parameters as below:
 # 因为myserver.crt 是幅ca.crt发布的，所以会验证成功
 > openssl verify -CAfile ca.crt myserver.crt
 ```
+- 判断一个证书是否是自签证书的方法  
+1. 查看证书信息中的Issuer(发行者)即可。  
 
 
 **Related Tutorials**:   
