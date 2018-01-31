@@ -19,3 +19,4 @@ def yieldFunc():
 if __name__ == "__main__":
     for i in yieldFunc():
         print i.next().status_code
+        print i
