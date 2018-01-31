@@ -63,3 +63,4 @@ objective-c的和C++里的(void*)类似
 PS：Objective-C和Java一样，都有运行时环境，有内省的能力。Objective-C和java有很多不同的地方，在iOS系统里，Objective-C的内存需要自己管理，添加了ARC机制后编译器帮助了Objective-C  添加release释放的代码。而Java是通过垃圾回收器管理内存的。  
 ### Reference  
 [十分钟让你明白Objective-C的语法（和Java、C++的对比）](http://blog.csdn.net/totogo2010/article/details/7632384)
+[Objective-C 语法快速参考](http://blog.jobbole.com/66202/)  
