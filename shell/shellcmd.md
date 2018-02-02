@@ -99,3 +99,4 @@ run command `man du` to show parameters as below:
 - [Linux下终端利器tmux](http://kumu-linux.github.io/blog/2013/08/06/tmux/)  
 - [Linux基础：利用SSH上传、下载（使用sz与rz命令）](http://skypegnu1.blog.51cto.com/8991766/1538371)  
 - [常用Openssl命令](http://www.cnblogs.com/E7868A/archive/2012/11/16/2772240.html)  
+- [Linux通过PID查看进程完整信息](http://blog.csdn.net/great_smile/article/details/50114133)  
