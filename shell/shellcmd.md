@@ -93,6 +93,11 @@ run command `man du` to show parameters as below:
 - 判断一个证书是否是自签证书的方法  
 1. 查看证书信息中的Issuer(发行者)即可。  
 
+- Nslookup is a program to query Internet domain name servers.   
+Usage:  
+查看ip地址为ipA的domain name  
+`nslookup ipA`  
+
 
 **Related Tutorials**:   
 - [优雅地使用命令行：Tmux 终端复用](http://harttle.com/2015/11/06/tmux-startup.html)  
