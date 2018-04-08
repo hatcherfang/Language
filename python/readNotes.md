@@ -1,5 +1,16 @@
 ## 《python源码剖析》笔记    
-#### python List  
+#### python list  
+1. python中的list是用指向元素的指针数组实现, 所以python的一个list变量可以存放不同类型的元素, 为避免重复申请内存空间, 一个list  
+变量会预留空闲空间, 方便追加元素, 同时当预留空间高于使用空间一半以上时, 变量空间会相应缩小。  
+2. list的增、删、改、查操作可以类比C语言中的数组和python list 操作之后的值情况来推测。  
+比如: 向list中插入元素insert(index, value)  
+```
+>>> l = [1, 2, 4]
+>>> l.insert(2, 3)
+>>> l
+[1, 2, 3, 4]
+```
+可以推测list的insert操作是从index位置开始将后面所有元素向后移动一位, 最后把value插入到index位置。  
   
 #### python Dict    
 python的实现是采用散列表(hash table)。解决冲突的方式是开放定址法。    
@@ -26,7 +37,7 @@ mp->ma_used*(mp->ma_used>50000 ? 2 : 4)
 即entry used态大于50000创建新的table的大小按照2倍来扩充，否则按照4倍来扩充。    
 调整table大小也会向size 变小的方向调整。    
 当将旧table数据copy到新table的时候，会忽略dummy状态的entry，因为新table中不需要伪删除来查找元素。copy完之后会把旧table空间释放。    
-  
+
 ## [程序员必知的Python陷阱与缺陷列表](http://www.cnblogs.com/xybaby/p/7183854.html)    
 我个人对陷阱的定义是这样的：代码看起来可以工作，但不是以你“想当然”的方式。  
 如果一段代码直接出错，抛出了异常，我不认为这是陷阱。  
@@ -301,4 +312,5 @@ map()、filter()、 dict.items()在Python2.7返回列表，而在3.x中返回迭
 本文列举了一些Python中的一些缺陷，这是一份不完全列表，欢迎大家补充。    
   
 ## Reference    
-- [程序员必知的Python陷阱与缺陷列表](http://www.cnblogs.com/xybaby/p/7183854.html)    
+1. python源码剖析  
+2. [程序员必知的Python陷阱与缺陷列表](http://www.cnblogs.com/xybaby/p/7183854.html)    
