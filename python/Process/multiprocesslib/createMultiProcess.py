@@ -17,9 +17,9 @@ def worker_3(interval):
     print "end worker_3"
 
 if __name__ == "__main__":
-    p1 = multiprocessing.Process(target = worker_1, args = (2,))
-    p2 = multiprocessing.Process(target = worker_2, args = (3,))
-    p3 = multiprocessing.Process(target = worker_3, args = (4,))
+    p1 = multiprocessing.Process(target = worker_1, args = (5,))
+    p2 = multiprocessing.Process(target = worker_2, args = (6,))
+    p3 = multiprocessing.Process(target = worker_3, args = (7,))
 
     p1.start()
     p2.start()
