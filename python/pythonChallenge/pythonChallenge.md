@@ -36,3 +36,23 @@ for line in fp:
 s = ''.join(result)
 print s
 ```
+4.   
+```
+import urllib
+import re
+
+times = 400
+url = "http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing={}"
+num = 12345
+result = ""
+for time in xrange(times):
+    try:
+        result = urllib.urlopen(url.format(num)).read().decode()
+        num = re.findall(r'and the next nothing is (\d+)', result)[0]
+    except:
+        if re.findall("Divide by two", result):
+            num = int(num)/2
+        else:
+            break
+print result
+```
