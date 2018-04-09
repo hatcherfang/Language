@@ -98,6 +98,9 @@ Usage:
 查看ip地址为ipA的domain name  
 `nslookup ipA`  
 
+- 查看linux所有网卡信息  
+`ip a`  
+
 
 **Related Tutorials**:   
 - [优雅地使用命令行：Tmux 终端复用](http://harttle.com/2015/11/06/tmux-startup.html)  
