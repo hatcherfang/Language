@@ -101,6 +101,18 @@ Usage:
 - 查看linux所有网卡信息  
 `ip a`  
 
+- 查询创建文件的原始rpm包：  
+rpm -qf /var/directory(directory文件夹名称)  
+
+- 如何对一个卡死的程序进行debug  
+1. 查看messages log `vim /var/log/messages`  
+2. 查看卡死的进程pid, 根据pid追综进程栈行为  
+`ps -ef | grep 进程名`    
+`pstack "pid"`  
+3. 查看进程正在进行的行为  
+`strace -p "pid"`  
+4. 根据pid到/proc/pid/fd/目录下查看  
+`ll /proc/pid/fd/`  
 
 **Related Tutorials**:   
 - [优雅地使用命令行：Tmux 终端复用](http://harttle.com/2015/11/06/tmux-startup.html)  
