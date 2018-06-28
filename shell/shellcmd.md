@@ -114,6 +114,22 @@ rpm -qf /var/directory(directory文件夹名称)
 4. 根据pid到/proc/pid/fd/目录下查看  
 `ll /proc/pid/fd/`  
 
+- [tee命令](http://man.linuxde.net/tee)  
+1. tee命令用于将数据重定向到文件，另一方面还可以提供一份重定向数据的副本作为后续命令的stdin。  
+简单的说就是把数据重定向到给定文件和屏幕上。  
+![tee workflow](http://man.linuxde.net/wp-content/uploads/2013/12/073315SF8.gif)  
+存在缓存机制，每1024个字节将输出一次。若从管道接收输入数据，应该是缓冲区满，才将数据转存到指定的文件中。  
+若文件内容不到1024个字节，则接收完从标准输入设备读入的数据后，将刷新一次缓冲区，并转存数据到指定文件。  
+tee(option)(param)  
+option:  
+-a：向文件中重定向时使用追加模式；  
+-i：忽略中断（interrupt）信号。  
+param:  
+filename：指定输出重定向的文件。
+- [split命令](http://man.linuxde.net/split)  
+1. split命令可以将一个大文件分割成很多个小文件，有时需要将文件分割成更小的片段，比如为提高可读性，生成日志等。  
+split option  
+
 **Related Tutorials**:   
 - [优雅地使用命令行：Tmux 终端复用](http://harttle.com/2015/11/06/tmux-startup.html)  
 - [Linux下终端利器tmux](http://kumu-linux.github.io/blog/2013/08/06/tmux/)  
