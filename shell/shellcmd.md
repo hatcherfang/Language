@@ -56,6 +56,8 @@ run command `man du` to show parameters as below:
 -s, --summarize
        display only a total for each argument
 ...
+eg:  
+du -h --max-depth=1 directory  
 ```
 - upload/download files sz/rz command  
 1. yum install lrzsz  
