@@ -2,9 +2,11 @@ def testDict(dic):
     dic1 = dic
     dic1["a"] = "change"
 
+
 def testList(li):
     li1 = li
     li1[0] = "change"
+
 
 if __name__ == '__main__':
     dic = {"a": "haiqun", "b": "fang"}
@@ -16,4 +18,5 @@ if __name__ == '__main__':
     testList(li)
     print "after:%r" % li
     # conclusion: dict and list is passed by reference in function parameter
-    print "conclusion: dict and list is passed by reference in function parameter"
+    print "conclusion: dict and list is passed by reference in function\
+            parameter"
