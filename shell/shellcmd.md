@@ -132,6 +132,111 @@ filename：指定输出重定向的文件。
 1. split命令可以将一个大文件分割成很多个小文件，有时需要将文件分割成更小的片段，比如为提高可读性，生成日志等。  
 split option  
 
+- [awk](http://www.zsythink.net/archives/1357)   
+1. awk split string  
+eg:  
+file.txt  
+```
+abc#123#def
+abc#123#def
+abc#123#def
+```
+Run command as below:  
+`cat file.txt | awk -F# '{print $1, $2, $3}'`  
+OR:  
+`awk -F# '{print $1, $2, $3}' file.txt`  
+Output:  
+```
+abc 123 def
+abc 123 def
+abc 123 def
+```
+- [sort](https://blog.csdn.net/monkeyduck/article/details/10097829)  
+1. sort的工作原理  
+sort将文件的每一行作为一个单位，相互比较，比较原则是从首字符向后，依次按ASCII码值进行比较，最后将他们按升序输出。  
+eg:  
+```
+[rocrocket@rocrocket programming]$ cat seq.txt
+banana
+apple
+pear
+orange
+[rocrocket@rocrocket programming]$ sort seq.txt
+apple
+banana
+orange
+pear
+```
+2. sort的-u选项  
+它的作用很简单，就是在输出行中去除重复行。  
+```
+[rocrocket@rocrocket programming]$ cat seq.txt
+banana
+apple
+pear
+orange
+pear
+[rocrocket@rocrocket programming]$ sort seq.txt
+apple
+banana
+orange
+pear
+pear
+[rocrocket@rocrocket programming]$ sort -u seq.txt
+apple
+banana
+orange
+pear
+
+pear由于重复被-u选项无情的删除了。
+```
+3. sort的-r选项  
+sort默认的排序方式是升序，如果想改成降序，就加个-r就搞定了。  
+```
+[rocrocket@rocrocket programming]$ cat number.txt
+1
+3
+5
+2
+4
+[rocrocket@rocrocket programming]$ sort number.txt
+1
+2
+3
+4
+5
+[rocrocket@rocrocket programming]$ sort -r number.txt
+5
+4
+3
+2
+1
+```
+4. sort的-o选项  
+由于sort默认是把结果输出到标准输出，所以需要用重定向才能将结果写入文件，形如sort filename > newfile。  
+但是，如果你想把排序结果输出到原文件中，用重定向可就不行了。  
+```
+[rocrocket@rocrocket programming]$ sort -r number.txt > number.txt
+[rocrocket@rocrocket programming]$ cat number.txt
+[rocrocket@rocrocket programming]$
+```
+看，竟然将number清空了。  
+就在这个时候，-o选项出现了，它成功的解决了这个问题，让你放心的将结果写入原文件。这或许也是-o比重定向的唯一优势所在。  
+```
+[rocrocket@rocrocket programming]$ cat number.txt
+1
+3
+5
+2
+4
+[rocrocket@rocrocket programming]$ sort -r number.txt -o number.txt
+[rocrocket@rocrocket programming]$ cat number.txt
+5
+4
+3
+2
+1
+```
 **Related Tutorials**:   
 - [优雅地使用命令行：Tmux 终端复用](http://harttle.com/2015/11/06/tmux-startup.html)  
 - [Linux下终端利器tmux](http://kumu-linux.github.io/blog/2013/08/06/tmux/)  
