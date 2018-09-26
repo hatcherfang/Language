@@ -237,6 +237,16 @@ sort默认的排序方式是升序，如果想改成降序，就加个-r就搞�
 2
 1
 ```
+- ssh登陆连接配置port和ssh key  
+1. configure port  
+open file `vim /etc/ssh/ssh_config`   
+add record:  
+```
+Host xx*
+    Port xxx
+```
+2. copy `id_rsa` to path ~/.ssh/  
+3. `chmod 400 ~/.ssh/id_rsa`  
 **Related Tutorials**:   
 - [优雅地使用命令行：Tmux 终端复用](http://harttle.com/2015/11/06/tmux-startup.html)  
 - [Linux下终端利器tmux](http://kumu-linux.github.io/blog/2013/08/06/tmux/)  
