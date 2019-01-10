@@ -253,6 +253,10 @@ Host xx\*
 cwd="$(cd `dirname "${BASH_SOURCE[0]}"` && pwd)"
 echo $cwd
 ```
+- set file privilege for specific user  
+```
+setfacl, getfacl 
+```
 
 
 **Related Tutorials**:   
