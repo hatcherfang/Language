@@ -17,22 +17,40 @@ tips:
         http://blog.csdn.net/zhangzheng0413/article/details/41728869
 '''
 import threading
+from threading import Thread
 import time
 
 
-def worker(num):
+def worker(num, num2):
     """
     thread worker function
     :return:
     """
-    time.sleep(10)
-    print("The num is  %d" % num)
+    time.sleep(1)
+    print("The num is  %d, num2:%d" % (num, num2))
     return num
+
+
+class CustomThread(Thread):
+    def __init__(self, func, *args):
+        Thread.__init__(self)
+        self.func = func
+        self.args = args
+
+    def run(self):
+        self.result = self.func(*self.args)
+
+    def get_result(self):
+        return self.result
+
+
+
 threads = []
 for i in range(10):
-    t = threading.Thread(target=worker, args=(i,), name="t.%d" % i)
+    t = CustomThread(worker, i, i+1)
     threads.append(t)
     t.start()
 for thread in threads:
     thread.join()
+    print("result:%r" % thread.get_result())
 print "end"
